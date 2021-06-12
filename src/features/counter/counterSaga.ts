@@ -1,4 +1,4 @@
-import { takeEvery } from "@redux-saga/core/effects";
+import { takeEvery, takeLatest } from "@redux-saga/core/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { delay, put } from "redux-saga/effects";
 import { incrementSaga, incrementSagaSuccess } from "./counterSlice";
@@ -23,4 +23,5 @@ export default function* counterSaga() {
     // yield takeEvery(increment().type, log);
     // yield takeEvery('*', log);
     yield takeEvery(incrementSaga.toString(), handleIncrementSaga);
+    // yield takeLatest(incrementSaga.toString(), handleIncrementSaga); --> use this for takeLatest
 }
